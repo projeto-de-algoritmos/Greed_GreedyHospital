@@ -2,14 +2,25 @@ import pandas as pd
 import surgery as sg
 
 all_surgeries = []
-# this will contain the rooms
-rooms = []
-first_room = []
-rooms.append(first_room)
+
+# this will contain the rooms, the hospital has 10 rooms max, and we want to user the minimum amount possible
+rooms = [[], [], [], [], [], [], [], [], [], []]
 
 
 def get_start_time(surgery):
     return surgery.start_time
+
+
+def add_to_free_room(surgery_to_add, room_number):
+
+    if not rooms[room_number]:
+        rooms[room_number].append(surgery_to_add)
+
+    else:
+        if rooms[room_number][ len(rooms[room_number]) - 1].end_time <= surgery_to_add.start_time:
+            rooms[room_number].append(surgery_to_add)
+        else:
+            add_to_free_room(surgery_to_add, room_number + 1)
 
 data = pd.read_csv("scheduled_surgeries.csv")
 
@@ -22,5 +33,19 @@ for surgery in data.itertuples():
 # sort jobs by start time
 all_surgeries.sort(key=get_start_time)
 
+i = 0
+
 for sorted_surgery in all_surgeries:
-    sorted_surgery.print_data()
+    if i == 0:
+        rooms[0].append(sorted_surgery)
+    else:
+        add_to_free_room(sorted_surgery, 0)
+    i += 1
+
+#print(rooms)
+i=0
+for room in rooms:
+    print(f"Room {i}")
+    for procedure in room:
+        print(procedure.print_data())
+    i += 1
