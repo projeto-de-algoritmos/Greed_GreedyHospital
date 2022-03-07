@@ -17,3 +17,15 @@ class Supply:
         print(f"percentage in Stock: {self.percentage_in_stock}")
         print(f"Percentage missing: {self.percentage_in_need}")
         print(f"Cost Benefit: {self.cost_benefit}")
+
+    def return_data(self):
+        s = ""
+        s += "-----------------------------------------------------\n"
+        s += f"Supply: {self.supply_name}\n"
+        s += f"Current Stock: {self.quantity_in_stock}\n"
+        s += f"Max Stock: {self.ideal_stock}\n"
+        s += f"Price: {self.price}\n"
+        s += f"percentage in Stock: {self.percentage_in_stock}\n"
+        s += f"Percentage missing: {self.percentage_in_need}\n"
+        s += f"Cost Benefit: {self.cost_benefit}"
+        return s

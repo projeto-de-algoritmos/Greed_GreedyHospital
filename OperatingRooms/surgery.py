@@ -12,3 +12,9 @@ class Surgery:
         print(f"Start: {self.start_time}")
         print(f"End {self.end_time}")
 
+    def return_data(self):
+        s = ""
+        s += f"\nProcedure {self.procedure}\n"
+        s += f"Head of surgery {self.head_of_surgery}\n"
+        s += f"Day: 0{ self.start_time // 24 }/01, Hour:{ self.start_time % 24 } \n"
+        return s

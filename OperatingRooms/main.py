@@ -42,10 +42,11 @@ for sorted_surgery in all_surgeries:
         add_to_free_room(sorted_surgery, 0)
     i += 1
 
-#print(rooms)
-i=0
+
+i = 0
 for room in rooms:
-    print(f"Room {i}")
-    for procedure in room:
-        print(procedure.print_data())
+    if room:
+        with open(f'room_{i+1}_schedule.txt', 'w+') as f:
+            for procedure in room:
+                f.write(procedure.return_data())
     i += 1

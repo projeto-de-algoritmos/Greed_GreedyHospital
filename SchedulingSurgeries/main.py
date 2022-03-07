@@ -33,5 +33,8 @@ for surgery in all_surgeries:
             A = surgery
     surgery_number += 1
 
-for optimal in optimal_schedule:
-    print(optimal.print_data())
+
+with open(f'optimal_schedule.txt', 'w+') as f:
+    f.write("Optimal schedule for the week:\n")
+    for optimal in optimal_schedule:
+        f.write(optimal.return_data())
