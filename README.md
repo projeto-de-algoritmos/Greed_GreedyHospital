@@ -40,7 +40,7 @@ Para rodar o projeto para executar a main de cada situação problema.
 
 ## Outros 
 - A biblioteca Pandas é usada no projeto, caso sua versão do python não a Pandas, basta instalar a versão mais recente.
-- No código 'Buying medical supplies' existe um módulo configurado para enviar emails, caso você queira mandar emails como eu mostro no vídeo, veja como configurar suas credenciais na [documentação](https://link-url-here.org)
+- No código 'Buying medical supplies' existe um módulo configurado para enviar emails, caso você queira mandar emails como eu mostro no vídeo, veja como configurar suas credenciais na [documentação](https://docs.python.org/3/library/smtplib.html)
 
 
 
