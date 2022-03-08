@@ -1,4 +1,7 @@
-import smtplib
+# PARA MANDAR EMAIL COM VEJA A DOCUMENTAÇÃO DO SMTPLIB
+# CONFIGURE UM EMAIL E O AMBIENTE E DESATIVE OS COMENTÁRIOS
+
+#import smtplib
 
 import pandas as pd
 import supply as sp
@@ -7,23 +10,23 @@ data = pd.read_csv("MedicalSuppliesInventory.csv")
 all_supplies = []
 
 
-def send_email(subject, message):
+#def send_email(subject, message):
 
-    gmail_user = ''
-    gmail_password = ''
-    to = ''
-    body = message.replace('\n','<br>')
-
-    try:
-        smtp_server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
-        smtp_server.ehlo()
-        smtp_server.login(gmail_user, gmail_password)
-        smtp_server.sendmail(gmail_user, to, f"Subject:Buy List\n\n{message}")
-
-        smtp_server.close()
-        print ("Email sent successfully!")
-    except Exception as ex:
-        print ("Something went wrong….",ex)
+#    gmail_user = 'jamesbondmalevola@gmail.com'
+#     gmail_password = 'codorna123'
+#     to = 'gugustavo137@gmail.com'
+#     body = message.replace('\n','<br>')
+#
+#     try:
+#         smtp_server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
+#         smtp_server.ehlo()
+#         smtp_server.login(gmail_user, gmail_password)
+#         smtp_server.sendmail(gmail_user, to, f"Subject:Buy List\n\n{message}")
+#
+#         smtp_server.close()
+#         print ("Email sent successfully!")
+#     except Exception as ex:
+#         print ("Something went wrong….",ex)
 
 
 def get_cost_benefit(supply):
@@ -46,7 +49,7 @@ with open('buy_list.txt', 'w+') as f:
         f.write("%s\n" % supply.return_data())
         i += 1
 
-with open('buy_list.txt') as f:
-    lines = f.readlines()
-    send_email("Buy list", ' '.join(lines))
-    #print(lines)
+# with open('buy_list.txt') as f:
+#     lines = f.readlines()
+#     send_email("Buy list", ' '.join(lines))
+#     #print(lines)
